@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class StackMenager : MonoBehaviour, IDropHandler
+public class GnomeInput : MonoBehaviour, IDropHandler
 {
     public GameObject slotsGameObject;
     public List<DragDrop> elements = new List<DragDrop>();
@@ -34,7 +34,7 @@ public class StackMenager : MonoBehaviour, IDropHandler
     {
         elements.Clear();
 
-        foreach (Transform child in slotsGameObject.transform)
+        foreach(Transform child in slotsGameObject.transform)
         {
             elements.Add(child.GetComponent<DragDrop>());
         }
