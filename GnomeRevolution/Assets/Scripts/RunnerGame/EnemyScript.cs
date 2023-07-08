@@ -13,6 +13,7 @@ public class EnemyScript : MonoBehaviour
     {
         speed = _speed;
         ready = true;
+        OnScreen = true;
     }
 
     private void Update()

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyBlock : MonoBehaviour
 {
-    public EnemyGenerator enemyGenerator;
+    [SerializeField] private EnemyGenerator enemyGenerator;
 
     private void Awake()
     {

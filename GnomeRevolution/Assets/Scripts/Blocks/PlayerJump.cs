@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerJump : MonoBehaviour
 {
-    public PlayerScript playerScript;
+    [SerializeField] private PlayerScript playerScript;
 
     private void Awake()
     {

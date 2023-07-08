@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerSprite : MonoBehaviour
 {
-    public GameObject player;
+    [SerializeField] private GameObject player;
     public GameEvent OnGameStart;
 
     private void Awake()
