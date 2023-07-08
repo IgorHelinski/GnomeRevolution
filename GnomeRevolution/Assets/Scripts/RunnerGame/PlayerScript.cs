@@ -34,10 +34,17 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    public void GoForJump()
+    {
+        if (isGrounded == true)
+        {
+            Jump();
+        }
+    }
+
     private void Jump()
     {
-        Debug.Log("Jumping, yayy");
-        rb2D.AddForce(Vector2.up * jumpForce * Time.deltaTime);
+        rb2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         isGrounded = false;
     }
 
