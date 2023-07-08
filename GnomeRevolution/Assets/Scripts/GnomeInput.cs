@@ -19,8 +19,8 @@ public class GnomeInput : MonoBehaviour, IDropHandler
 
         if (eventData.pointerDrag != null)
         {
-            DragDrop item = eventData.pointerDrag.GetComponent<DragDrop>();
-            item.parentAfterDrag = slotsGameObject.transform;
+            //DragDrop item = eventData.pointerDrag.GetComponent<DragDrop>();
+            //item.parentAfterDrag = slotsGameObject.transform;
             //Invoke("CheckElements", 0.1f);
         }
     }

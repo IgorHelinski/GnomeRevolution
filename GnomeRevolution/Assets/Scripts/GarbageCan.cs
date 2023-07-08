@@ -13,8 +13,9 @@ public class GarbageCan : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPo
 
     public void OnDrop(PointerEventData eventData)
     {
-        if (eventData.pointerDrag != null)
+        if (eventData.pointerDrag != null && eventData.pointerDrag.TryGetComponent<DragDrop>(out DragDrop dragDrop))
         {
+            Destroy(dragDrop.currentEmpty);
             Destroy(eventData.pointerDrag);
         }
     }
