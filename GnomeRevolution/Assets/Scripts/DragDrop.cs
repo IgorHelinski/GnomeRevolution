@@ -69,7 +69,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     public void OnDrop(PointerEventData eventData)
     {
-        if (eventData.pointerDrag != null)
+        if (eventData.pointerDrag != null && transform.parent.GetComponent<StackTag>().currentStackType != StackTag.StackType._gnomeInput)
         {
             DragDrop item = eventData.pointerDrag.GetComponent<DragDrop>();
             item.parentAfterDrag = transform.parent;

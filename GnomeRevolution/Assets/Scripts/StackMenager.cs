@@ -8,6 +8,8 @@ public class StackMenager : MonoBehaviour, IDropHandler
     public GameObject slotsGameObject;
     public List<DragDrop> elements = new List<DragDrop>();
 
+    public GameEvent OnDropEvent;
+
     private void Start()
     {
         //CheckElements();
@@ -21,6 +23,8 @@ public class StackMenager : MonoBehaviour, IDropHandler
         {
             DragDrop item = eventData.pointerDrag.GetComponent<DragDrop>();
             item.parentAfterDrag = slotsGameObject.transform;
+
+            OnDropEvent.Raise(this, eventData.pointerDrag);
             //Invoke("CheckElements", 0.1f);
         }
     }
