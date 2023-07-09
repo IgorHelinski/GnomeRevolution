@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerJump : MonoBehaviour
 {
+    public bool alreadyUsed = false;
+
     [SerializeField] private PlayerScript playerScript;
 
     private void Awake()
@@ -11,6 +13,7 @@ public class PlayerJump : MonoBehaviour
         if(playerScript == null)
         {
             playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
+            alreadyUsed = false;
         }
     }
 
@@ -19,9 +22,10 @@ public class PlayerJump : MonoBehaviour
         if(data is GameObject)
         {
             GameObject block = (GameObject)data;
-            if(block == this.gameObject)
+            if(block == this.gameObject && alreadyUsed == false)
             {
                 playerScript.GoForJump();
+                alreadyUsed = true;
             }
         }
     }

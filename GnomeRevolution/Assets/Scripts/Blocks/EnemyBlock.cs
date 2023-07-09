@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyBlock : MonoBehaviour
 {
+    public bool alreadyUsed = false;
+
     [SerializeField] private EnemyGenerator enemyGenerator;
 
     private void Awake()
@@ -11,6 +13,7 @@ public class EnemyBlock : MonoBehaviour
         if (enemyGenerator == null)
         {
             enemyGenerator = GameObject.FindGameObjectWithTag("EnemyGenerator").GetComponent<EnemyGenerator>();
+            alreadyUsed = false;
         }
     }
 
@@ -19,9 +22,10 @@ public class EnemyBlock : MonoBehaviour
         if (data is GameObject)
         {
             GameObject block = (GameObject)data;
-            if (block == this.gameObject)
+            if (block == this.gameObject && alreadyUsed == false)
             {
                 enemyGenerator.GenerateEnemy();
+                alreadyUsed = true;
             }
         }
     }
