@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameLoop : MonoBehaviour
 {
@@ -34,5 +35,6 @@ public class GameLoop : MonoBehaviour
     {
         StopCoroutine(GameCycle());
         Debug.Log("Gaaame overrr");
+        SceneManager.LoadScene(2);
     }
 }
