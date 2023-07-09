@@ -8,7 +8,10 @@ public class StackMenager : MonoBehaviour, IDropHandler
     public GameObject slotsGameObject;
     public List<DragDrop> elements = new List<DragDrop>();
 
+    public int maxSize;
+
     public GameEvent OnDropEvent;
+    public GameEvent OnGameOver;
 
     private void Start()
     {
@@ -32,6 +35,11 @@ public class StackMenager : MonoBehaviour, IDropHandler
     private void Update()
     {
         CheckElements();
+
+        if(elements.Count >= maxSize)
+        {
+            OnGameOver.Raise(this, this);
+        }
     }
 
     private void CheckElements()

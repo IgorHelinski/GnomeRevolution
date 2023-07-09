@@ -8,6 +8,7 @@ public class EnemyScript : MonoBehaviour
     float speed;
 
     public bool OnScreen;
+    public GameEvent OnGameOver;
 
     public void StartMovement(float _speed)
     {
@@ -21,6 +22,14 @@ public class EnemyScript : MonoBehaviour
         if (ready)
         {
             transform.Translate(Vector2.left * speed * Time.deltaTime);
+        }
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.TryGetComponent<PlayerScript>(out PlayerScript player))
+        {
+            OnGameOver.Raise(this, this);
         }
     }
 }

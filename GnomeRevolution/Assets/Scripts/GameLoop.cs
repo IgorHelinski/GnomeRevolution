@@ -29,4 +29,10 @@ public class GameLoop : MonoBehaviour
             yield return new WaitForSeconds(randomBuffer);
         }
     }
+
+    public void GameOver(Component sender, object data)
+    {
+        StopCoroutine(GameCycle());
+        Debug.Log("Gaaame overrr");
+    }
 }

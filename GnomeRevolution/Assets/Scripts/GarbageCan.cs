@@ -15,8 +15,11 @@ public class GarbageCan : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPo
     {
         if (eventData.pointerDrag != null && eventData.pointerDrag.TryGetComponent<DragDrop>(out DragDrop dragDrop))
         {
-            Destroy(dragDrop.currentEmpty);
-            Destroy(eventData.pointerDrag);
+            if(dragDrop.currentEmpty.transform.parent.GetComponent<StackTag>().currentStackType != StackTag.StackType._gnomeInput)
+            {
+                Destroy(dragDrop.currentEmpty);
+                Destroy(eventData.pointerDrag);
+            }
         }
     }
 
