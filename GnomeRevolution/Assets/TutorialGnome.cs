@@ -1,18 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class TutorialGnome : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public TextMeshProUGUI textMesh;
+
+    [TextArea]
+    public string tutorialString1;
+    [TextArea]
+    public string tutorialString2;
+
+    private void Start()
     {
-        
+        textMesh.text = tutorialString1;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnGameStart(Component sender, object data)
     {
-        
+        this.gameObject.SetActive(false);
+    }
+
+    public void Continue()
+    {
+        textMesh.text = tutorialString2;
     }
 }
